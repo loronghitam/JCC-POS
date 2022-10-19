@@ -2,15 +2,15 @@
     <ul>
         @guest
         <li>Get Access: <a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="/register">Register</a></li>
         @else
-        <li>Hello: <a href="#">{{ auth()->user()->username }}</a></li>
+        <li>Hello: <a href="#">{{ auth()->user()->first_name }}</a></li>
         <a href="#" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
         </a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
             @csrf
         </form>
         @endguest
@@ -18,8 +18,7 @@
 </div>
 <div class="furniture-search">
     <form>
-        <input placeholder="I am Searching for . . ." type="text" name="q" autocomplete="off"
-            id="search">
+        <input placeholder="I am Searching for . . ." type="text" name="q" autocomplete="off" id="search">
         <button disabled>
             <i class="ti-search"></i>
         </button>
