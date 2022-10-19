@@ -16,8 +16,8 @@ class Transaction extends Model
         'id_cart',
     ];
 
-    public function FunctionName(Type $var = null)
+    public function cart()
     {
-        # code...
+        $this->oneToMany(Cart::class);
     }
 }
