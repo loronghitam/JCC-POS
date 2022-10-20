@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('title', $product->name)
+@extends('layouts.app')
+@section('title')
 @section('content')
     <div class="product-details ptb-100 pb-90">
 
@@ -17,71 +17,72 @@
                 <div class="col-md-12 col-lg-7 col-12">
                     <div class="product-details-img-content">
                         <div class="product-details-tab mr-70">
-                            @if($product->media_count)
+                            {{-- @if($product->media_count) --}}
                                 <div class="product-details-large tab-content">
-                                    @foreach ($product->media as $media)
-                                        <div class="tab-pane {{ $loop->index == 0 ? 'active' : '' }} show fade"
-                                             id="pro-details{{ $loop->index }}" role="tabpanel">
+                                    {{-- @foreach ($product->media as $media) --}}
+                                        <div class="tab-pane # show fade"
+                                             id="pro-details#" role="tabpanel">
                                             <div class="easyzoom easyzoom--overlay">
-                                                @if($product->media)
-                                                    <a href="{{ asset('storage/images/products/' . $media->file_name ) }}">
-                                                        <img src="{{ asset('storage/images/products/' . $media->file_name ) }}"
-                                                             alt="{{ $product->name }}">
+                                                {{-- @if($product->media) --}}
+                                                    <a href="https://assets.klikindomaret.com/products/20064873/20064873_2.jpg">
+                                                        <img src="https://assets.klikindomaret.com/products/20064873/20064873_2.jpg" alt="#">
                                                     </a>
-                                                @else
+                                                {{-- @else --}}
                                                     <img src="{{ asset('img/no-img.png' ) }}"
-                                                         alt="{{ $product->name }}">
-                                                @endif
+                                                         alt="#">
+                                                {{-- @endif --}}
                                             </div>
                                         </div>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </div>
                                 <div class="product-details-small nav mt-12" role=tablist>
-                                    @foreach ($product->media as $media)
-                                        <a class="{{ $loop->index == 0 ? 'active' : '' }} mr-12"
-                                           href="#pro-details{{ $loop->index }}" data-toggle="tab" role="tab"
+                                    {{-- @foreach ($product->media as $media) --}}
+                                        <a class="# mr-12"
+                                           href="#pro-details#" data-toggle="tab" role="tab"
                                            aria-selected="true">
-                                            <img style="width: 90px;" src="{{ asset('storage/images/products/' . $media->file_name ) }}"
-                                                 alt="{{ $product->name }}">
+                                            <img style="width: 90px;" src="https://assets.klikindomaret.com/products/20064873/20064873_2.jpg"
+                                                 alt="#">
                                         </a>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </div>
-                            @else
-                                <img src="{{ asset('img/no-img.png' ) }}" alt="{{ $product->name }}">
-                            @endif
+                            {{-- @else --}}
+                                {{-- <img src="{{ asset('img/no-img.png' ) }}" alt="#"> --}}
+                            {{-- @endif --}}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-5 col-12">
                     <div class="product-details-content">
-                        <h3>{{ $product->name }}</h3>
+                        <h3>#</h3>
                         <div class="rating-number">
                             <div class="quick-view-number">
                                 <span class="score">
                                     <div class="score-wrap">
-                                        @if($product->approved_reviews_avg_rating)
-                                            @for($i = 0; $i < 5; $i++)
+                                        {{-- @if($product->approved_reviews_avg_rating)
+                                            @for($i = 0; $i < 5; $i++) --}}
                                                 <span class="stars-active">
-                                                    <i class="{{ round($product->approved_reviews_avg_rating) <= $i ? 'far' : 'fas' }} fa-star"></i>
+                                                    <i class="# fa-star"></i>
                                                 </span>
-                                            @endfor
+                                            {{-- @endfor
                                         @else
-                                            @for($i = 0; $i < 5; $i++)
+                                            @for($i = 0; $i < 5; $i++) --}}
                                                 <i class="far fa-star"></i>
-                                            @endfor
-                                        @endif
+                                            {{-- @endfor
+                                        @endif --}}
                                     </div>
                                 </span>
-                                <span>{{ $product->approved_reviews_count }} Ratting (S)</span>
+                                {{-- <span>{{ $product->approved_reviews_count }} Ratting (S)</span> --}}
+                                <span> 1 Ratting (S)</span>
                             </div>
                         </div>
                         <div class="details-price">
-                            <span>Rp.{{ number_format($product->price) }}</span>
+                            {{-- <span>Rp.{{ number_format($product->price) }}</span> --}}
+                            <span>Rp. 20.100</span>
                         </div>
-                        <p>{!! $product->description !!}</p>
-                            <form action="{{ route('cart.store') }}" method="post">
+                        {{-- <p>{!! $product->description !!}</p> --}}
+                            <form action="#" method="post">
                                     @csrf
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="product_id" value="#">
 
                                 <div class="quickview-plus-minus">
                                     <div class="cart-plus-minus">
@@ -98,20 +99,20 @@
                         <div class="product-details-cati-tag mt-35">
                             <ul>
                                 <li class="categories-title">Categories :</li>
-                                <li><a class="badge badge-warning text-white" href="{{ route('shop.index', $product->category->slug) }}">{{ $product->category->name }}</a></li>
+                                <li><a class="badge badge-warning text-white" href="#">asd</a></li>
                             </ul>
                         </div>
                         <div class="product-details-cati-tag mtb-10">
                             <ul>
                                 <li class="categories-title">Tags :</li>
                                 <li>
-                                    @if($product->tags->count() > 0)
-                                        @foreach($product->tags as $tag)
-                                        <a href="{{ route('shop.tag', $tag->slug) }}">
-                                            <span class="badge badge-info">{{ $tag->name }}</span>
+                                    {{-- @if($product->tags->count() > 0) --}}
+                                        {{-- @foreach($product->tags as $tag) --}}
+                                        <a href="#">
+                                            <span class="badge badge-info">a</span>
                                         </a>
-                                        @endforeach
-                                    @endif
+                                        {{-- @endforeach --}}
+                                    {{-- @endif --}}
                                 </li>
                             </ul>
                         </div>
@@ -140,7 +141,7 @@
             <div class="product-description-review text-center">
                 <div class="description-review-title nav" role=tablist>
                     <a class="active" href="#pro-review" data-toggle="tab" role="tab" aria-selected="false">
-                        Reviews ({{ $product->approved_reviews_count }})
+                        Reviews asas
                     </a>
                     <a href="#pro-dec" data-toggle="tab" role="tab" aria-selected="true">
                         Description
@@ -148,14 +149,14 @@
                 </div>
                 <div class="description-review-text tab-content">
                     <div class="tab-pane fade" id="pro-dec" role="tabpanel">
-                        <p>{!! $product->details !!}</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate inventore sint impedit eum aliquid provident deleniti tenetur, obcaecati ullam dolor earum, aliquam exercitationem, nostrum sequi. Blanditiis laborum officia est.</p>
                     </div>
                     <div class="tab-pane active show fade" id="pro-review" role="tabpanel">
                         <div class="page-blog-details section-padding--lg bg--white pt-0">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-9 col-12">
-                                        <livewire:shop.single-product-review-component :product="$product" />
+                                        {{-- <livewire:shop.single-product-review-component :product="$product" /> --}}
                                     </div>
                                 </div>
                             </div>
@@ -174,32 +175,32 @@
                 <br>
                 <div class="product-style">
                     <div class="popular-product-active owl-carousel">
-                        @foreach ($relatedProducts as $product)
+                        {{-- @foreach ($relatedProducts as $product) --}}
                             <div class="product-wrapper">
                                 <div class="product-img">
-                                    <a href="{{ route('product.show', $product->slug) }}">
-                                        @if($product->firstMedia)
-                                        <img src="{{ asset('storage/images/products/' . $product->firstMedia->file_name) }}"
-                                         alt="{{ $product->name }}">
-                                        @else
-                                            <img src="{{ asset('frontend/assets/img/product/fashion-colorful/1.jpg') }}" alt="{{ $product->name }}">
-                                        @endif
+                                    <a href="#">
+                                        {{-- @if($product->firstMedia) --}}
+                                        <img src="https://assets.klikindomaret.com/products/20064873/20064873_2.jpg"
+                                         alt="#">
+                                        {{-- @else --}}
+                                            <img src="https://assets.klikindomaret.com/products/20064873/20064873_2.jpg" alt="#">
+                                        {{-- @endif --}}
                                     </a>
                                     <div class="product-action">
-                                        <a class="animate-left add-to-fav" title="Wishlist"  product-slug="{{ $product->slug }}" href="">
+                                        <a class="animate-left add-to-fav" title="Wishlist"  product-slug="#" href="">
                                             <i class="pe-7s-like"></i>
                                         </a>
-                                        <a class="animate-top add-to-card" title="Add To Cart" href="" product-id="{{ $product->id }}" product-slug="{{ $product->slug }}">
+                                        <a class="animate-top add-to-card" title="Add To Cart" href="" product-id="#" product-slug="#">
                                             <i class="pe-7s-cart"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="funiture-product-content text-center">
-                                    <h4><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
-                                    <span>Rp.{{ number_format($product->price) }}</span>
+                                    <h4><a href="#">#</a></h4>
+                                    <span>Rp. 11.111</span>
                                 </div>
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>
