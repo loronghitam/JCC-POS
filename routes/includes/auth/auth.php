@@ -12,5 +12,5 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/logout', [RegistrasiController::class, 'logout'])->name('logout');
+    Route::post('/logout', [RegistrasiController::class, 'logout'])->name('logout');
 });

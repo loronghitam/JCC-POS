@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 
-
+Route::prefix('admin')->group(function () {
+    Route::get('product', function () {
+        return view('admin.products.index');
+    });
+});
 
 
 
@@ -20,5 +24,5 @@ Route::get('cart', function () {
 });
 
 Route::get('admin', function () {
-    return view('layouts.admin');
+    return view('admin.dashboard');
 });

@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Spatie\Permission\PermissionServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class, // SpatieProvider
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class, // SweetAlertServiceProvider
         /*

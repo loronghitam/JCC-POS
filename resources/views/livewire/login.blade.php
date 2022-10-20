@@ -25,10 +25,10 @@
         </div>
         <button type="submit" class="btn btn-primary btn-user btn-block"> Login</button>
         <div class="text-center mt-3">
-            <a class="small" href="forgot-password.html">Forgot Password?</a>
+            <a class="small" href="#">Forgot Password?</a>
         </div>
         <hr>
-        <a href="index.html" class="btn btn-facebook btn-user btn-block" >
+        <a href="/register" class="btn btn-facebook btn-user btn-block" >
             Create an Account!
         </a>
     </form>

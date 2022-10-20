@@ -39,7 +39,7 @@
                             </div>
                             @livewire('registrasi')
                             <div class="text-center mt-3">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="/login">Already have an account? Login!</a>
                             </div>
                             <hr>
                         </div>

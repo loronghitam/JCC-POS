@@ -1,7 +1,7 @@
 <div class="furniture-login">
     <ul>
         @guest
-        <li>Get Access: <a href="#">Login</a></li>
+        <li>Get Access: <a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
         @else
         <li>Hello: <a href="#">{{ auth()->user()->first_name }}</a></li>
