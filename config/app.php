@@ -185,8 +185,12 @@ return [
         /*
          * Package Service Providers...
          */
+<<<<<<< HEAD
         Spatie\Permission\PermissionServiceProvider::class,
 
+=======
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class, // SweetAlertServiceProvider
+>>>>>>> 9e74e5fe1f06f63df4931dfd328366a712162720
         /*
          * Application Service Providers...
          */
