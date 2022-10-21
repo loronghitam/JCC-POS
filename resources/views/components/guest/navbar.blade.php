@@ -12,7 +12,7 @@
                     <a href="/">home</a>
                 </li>
                 <li>
-                    {{-- <a href="{{ route('shop.index') }}">shop</a> --}}
+                    <a href="">shop</a>
                 </li>
                 <li><a href="#">Categories</a>
                     <ul class="single-dropdown">

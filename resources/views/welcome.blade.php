@@ -36,12 +36,12 @@
                 {{-- @foreach($categories as $category) --}}
                     <div class="col-lg-3 mb-5">
                         <div class="card category-card">
-                            <a href="{{ route('shop.index', $category->slug) }}">
-                                <img class="img-cover" src="{{ Storage::url('images/categories/'. $category->cover) }}" alt="">
+                            <a href="#">
+                                <img class="img-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkBQVxCbqULbjyru8YBvkT3Z4W6BX942z1IL5Yiw5RCQ&s" alt="">
                                 <span
                                 class="position-absolute category-name"
                                 style=" position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);background-color: white;padding: .8rem 1rem;border: 3px solid #f0f0f0;">
-                                    {{ $category->name }}
+                                    kondom
                                 </span>
                             </a>
                         </div>
@@ -101,32 +101,32 @@
                 <br>
                 <div class="product-style">
                     <div class="popular-product-active owl-carousel">
-                        @foreach ($products as $product)
+                        {{-- @foreach ($products as $product) --}}
                             <div class="product-wrapper">
                                 <div class="product-img">
-                                    <a href="{{ route('product.show', $product->slug) }}">
-                                        @if($product->firstMedia)
-                                        <img src="{{ asset('storage/images/products/' . $product->firstMedia->file_name) }}"
-                                         alt="{{ $product->name }}">
-                                        @else
-                                            <img src="{{ asset('frontend/assets/img/product/fashion-colorful/1.jpg') }}" alt="{{ $product->name }}">
-                                        @endif
+                                    <a href="#">
+                                        {{-- @if($product->firstMedia) --}}
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkBQVxCbqULbjyru8YBvkT3Z4W6BX942z1IL5Yiw5RCQ&s"
+                                         alt="">
+                                        {{-- @else --}}
+                                            <img src="{{ asset('frontend/assets/img/product/fashion-colorful/1.jpg') }}" alt="">
+                                        {{-- @endif --}}
                                     </a>
                                     <div class="product-action">
-                                        <a class="animate-left add-to-fav" title="Wishlist"  product-slug="{{ $product->slug }}" href="">
+                                        <a class="animate-left add-to-fav" title="Wishlist"  product-slug="" href="">
                                             <i class="pe-7s-like"></i>
                                         </a>
-                                        <a class="animate-top add-to-card" title="Add To Cart" href="" product-id="{{ $product->id }}" product-slug="{{ $product->slug }}">
+                                        <a class="animate-top add-to-card" title="Add To Cart" href="">
                                             <i class="pe-7s-cart"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="funiture-product-content text-center">
-                                    <h4><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
-                                    <span>Rp.{{ number_format($product->price) }}</span>
+                                    <h4><a href="#">kondom</a></h4>
+                                    <span>Rp.2000</span>
                                 </div>
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>
