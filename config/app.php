@@ -185,6 +185,10 @@ return [
         /*
          * Package Service Providers...
          */
+        // WireElements\Pro\WireElementsProServiceProvider::class, // WireElementsProServiceProvider
+
+        Darryldecode\Cart\CartServiceProvider::class, // CartService
+
         Spatie\Permission\PermissionServiceProvider::class, // SpatieProvider
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class, // SweetAlertServiceProvider
