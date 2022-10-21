@@ -21,15 +21,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{route('update' , [$data->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @method('put')
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     {{-- <input class="form-control" id="name" type="text" name="name" value="{{ old('name', $product->name) }}"> --}}
-                                    <input class="form-control" id="name" type="text" name="name" value="">
+                                    <input class="form-control" id="name" type="text" name="name" value="{{$data->name}}">
                                     @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
@@ -37,7 +36,7 @@
                                 <div class="form-group">
                                     <label for="price">Price</label>
                                     {{-- <input class="form-control" id="price" type="number" name="price" value="{{ old('price', $product->price) }}"> --}}
-                                    <input class="form-control" id="price" type="number" name="price" value="#">
+                                    <input class="form-control" id="price" type="number" name="price" value="{{$data->price}}">
                                     @error('price')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
@@ -45,7 +44,7 @@
                                 <div class="form-group">
                                     <label for="quantity">Quantity</label>
                                     {{-- <input class="form-control" id="quantity" type="number" name="quantity" value="{{ old('quantity', $product->quantity) }}"> --}}
-                                    <input class="form-control" id="quantity" type="number" name="quantity" value="#">
+                                    <input class="form-control" id="quantity" type="number" name="stok" value="{{$data->stok}}">
                                     @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
@@ -55,10 +54,10 @@
                                 <div class="form-group">
                                     <label for="category_id">Category</label>
                                     <select name="category_id" id="category_id" class="form-control">
-                                        <option value="">- Select category -</option>
+                                        <option value="">{{ $category->name }}</option>
                                         {{-- @forelse($categories as $category) --}}
                                             {{-- <option value="{{ $category->id }}" {{ old('category_id') || $product->category_id == $category->id ? 'selected' : null }}> --}}
-                                            <option value="#" >
+                                            <option value="{{$data->id_category}}" >
                                                 {{-- {{ $category->name }} --}}
                                                 asik
                                             </option>
@@ -111,7 +110,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                 <label for="details" class="text-small text-uppercase">{{ __('details') }}</label>
-                                <textarea name="details" rows="3" class="form-control summernote"></textarea>
+                                <textarea name="detail" rows="3" class="form-control summernote"></textarea>
                                 @error('details')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>

@@ -7,4 +7,5 @@ Route::prefix('admin')->group(function () {
         return view('admin.dashboard');
     });
     include_once('product.php');
+    include_once('category.php');
 });

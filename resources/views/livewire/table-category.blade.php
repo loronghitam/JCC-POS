@@ -56,7 +56,7 @@
                         <td>Ada Dong</td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <a href="/edit/{{$product->id}}" class="btn btn-sm btn-primary">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <form onclick="return confirm('are you sure !')" action="#"

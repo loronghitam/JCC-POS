@@ -21,9 +21,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{route('create')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('put')
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
@@ -63,7 +62,7 @@
                                 {{-- <option value="{{ $category->id }}"
                                 {{ old('category_id') || $product->category_id == $category->id ? 'selected' : null }}>
                                 --}}
-                                <option value="#">
+                                <option value="1">
                                     {{-- {{ $category->name }} --}}
                                     asik
                                 </option>
