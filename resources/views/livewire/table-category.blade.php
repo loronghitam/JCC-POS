@@ -5,7 +5,7 @@
                 {{ __('Products') }}
             </h6>
             <div class="ml-auto">
-                <a href="/admin/create" class="btn btn-primary">
+                <a href="{{ route('product.create') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-plus"></i>
                     </span>

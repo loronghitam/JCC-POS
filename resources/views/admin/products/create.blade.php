@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @push('style')
 <link rel="stylesheet" href="{{ asset('backend/vendor/select2/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
                 {{ __('Create Product')}}
             </h6>
             <div class="ml-auto">
-                <a href="#" class="btn btn-primary">
+                <a href="" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-home"></i>
                     </span>
@@ -21,9 +21,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('put')
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
@@ -45,7 +44,7 @@
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label for="quantity">Quantity</label>
+                            <label for="stok">Quantity</label>
                             {{-- <input class="form-control" id="quantity" type="number" name="quantity" value="{{ old('quantity', $product->quantity) }}">
                             --}}
                             <input class="form-control" id="quantity" type="number" name="stok" value="#">
@@ -63,7 +62,7 @@
                                 {{-- <option value="{{ $category->id }}"
                                 {{ old('category_id') || $product->category_id == $category->id ? 'selected' : null }}>
                                 --}}
-                                <option value="#">
+                                <option value="1">
                                     {{-- {{ $category->name }} --}}
                                     asik
                                 </option>
