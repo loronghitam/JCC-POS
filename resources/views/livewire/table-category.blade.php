@@ -5,16 +5,12 @@
                 {{ __('Products') }}
             </h6>
             <div class="ml-auto">
-                <button wire:click="$emit('openModal', 'admin.actions.edit-user')">Edit User</button>
-                <button wire:click="$emit('openModal', 'table-category')">Edit User</button>
-                <button class="btn btn-primary" onclick="Livewire.emit('openModal', 'table-category')">
-
+                <a href="/admin/create" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-plus"></i>
                     </span>
-                    <span class="text" >{{ __('New product') }}</span>
-
-            </button>
+                    <span class="text">{{ __('New product') }}</span>
+                </a>
             </div>
         </div>
         <div class="table-responsive">

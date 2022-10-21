@@ -67,7 +67,7 @@
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                <form id="logout-form" action="{{ route('logout') }}" method="get">
                                     @csrf
                                 </form>
                             </div>

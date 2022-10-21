@@ -59,8 +59,14 @@ class RegistrasiController extends Controller
         Auth::attempt($data);
 
         if (Auth::check()) {
+            // dd(Auth::user()->role);
+            if (Auth::user()->role == "user") {
+                return redirect('/');
+            }
+            return redirect('/admin');
+
+
             // Login masuk kehalaman dashboard
-            return redirect()->route('home');
             // !Login Masuk kehalam dashboard
         }
 

@@ -5,15 +5,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/product')->group(function () {
     Route::get('/', function () {
-        return view('admin.tags.index');
+        return view('admin.products.index');
     });
     Route::get('/edit', function () {
-        return view('admin.tags.edit');
+        return view('admin.products.edit');
     });
     Route::get('/create', function () {
-        return view('admin.tags.create');
+        return view('admin.products.create');
     });
     Route::get('/show', function () {
-        return view('admin.tags.show');
+        return view('admin.products.show');
     });
 });
