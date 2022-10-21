@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-include_once('includes/tests/tests.php');
 include_once('includes/auth/auth.php');
-include_once('includes/guest/guest.php');
 
 
-Route::middleware(['admin', 'auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    });
+
+    include_once('includes/admin/product.php');
     include_once('includes/admin/admin.php');
 });

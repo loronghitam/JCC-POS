@@ -1,122 +1,168 @@
-<!doctype html>
-<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/favicon.png') }}">
+    <meta name="author" content="">
 
-    <!-- all css here -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/pe-icon-7-stroke.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/icofont.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/meanmenu.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/easyzoom.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bundle.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="{{ asset('frontend/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <title>Admin Page</title>
 
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @livewireStyles
+    <!-- Custom styles for this template-->
+    <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-fileinput/css/fileinput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/plugins/bootstrap-datepicker3.min.css') }}">
+    @stack('style')
 </head>
 
-<body>
+<body id="page-top">
 
-    <!-- header start -->
-    <header>
-        <div class="header-top-furniture wrapper-padding-2 res-header-sm">
-            <div class="container-fluid">
-                @include('components.guest.navbar')
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+            @include('components.admin.sidebar')
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->first_name }}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="{{ asset('backend/img/undraw_profile.svg') }}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="get">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                @if(session()->has('message'))
+                    <div class="alert alert-{{ session()->get('alert-type') }} alert-dismissible fade show" role="alert" id="alert-message">
+                        {{ session()->get('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
+                @yield('content')
+                <!-- /.container-fluid -->
+
             </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Sb-Admin</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
         </div>
-        <div class="header-bottom-furniture wrapper-padding-2 border-top-3" style="border-bottom: 1px solid #e0e0e0;">
-            <div class="container-fluid">
-                <div class="furniture-bottom-wrapper">
-                    @include('components.guest.action')
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                  <form action="" method="POST">
+                    @csrf
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="submit">Logout</button>
+                  </form>
                 </div>
             </div>
         </div>
-    </header>
-    <!-- header end -->
+    </div>
 
-    @yield('content')
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- footer -->
-    @include('components.guest.footer')
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('backend/js/sb-admin-2.min.js') }}"></script>
 
+    <!-- Page level plugins -->
+    <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-    @livewireScripts
-    <!-- all js here -->
-    <script src="{{ asset('frontend/assets/js/vendor/jquery-1.12.0.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/popper.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/waypoints.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/ajax-mail.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/app.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            let bloodhound = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                remote: {
-                    url: '{{url("search")}}?productName=%QUERY%', //'/user/find?q=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-            });
+    <!-- file input -->
+      <!-- file input -->
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/piexif.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/sortable.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/themes/fas/theme.min.js') }}"></script>
+    <!-- summernote -->
+    <script src="{{ asset('backend/vendor/summernote/summernote-bs4.min.js') }}"></script>
 
-            $('#search').typeahead({
-                hint: true,
-                highlight: true,
-                minLength: 1
-            }, {
-                name: 'products',
-                source: bloodhound,
-                limit: 10,
-                display: function (data) {
-                    return data.name //Input value to be set when you select a suggestion.
-                },
-                templates: {
-                    empty: [
-                        '<div class="list-group-item">There are no matching search results</div>'
-                    ],
-                    header: [
-                        '<div class="list-group search-results-dropdown">'
-                    ],
-                    suggestion: function (data) {
-                        return '<div style="font-weight:normal; width:100%" class="list-group-item"><a href="{{url('
-                        product ')}}/' + data.slug + '">' + data.name + '</a></div></div>'
-                    }
-                }
-            });
-        });
+    <!-- Page level custom scripts -->
+    @stack('script')
 
-    </script>
 </body>
 
 </html>

@@ -39,43 +39,4 @@ class RegistrasiController extends Controller
 
         return redirect('login')->with('success', 'Akun Berhasil Dibuat Silah login menggunakan akun yang telah tadi dibuat');
     }
-
-    public function login(Request $request)
-    {
-        // Mengambil data user database user
-        $user = DB::table('users')->where(
-            'email',
-            $request->email
-        )->first();
-        // !Mengambil data user database user
-
-        // mengambil data user dari haisl inputan
-        $data = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-        // mengambil data user dari hasil inputan
-
-        Auth::attempt($data);
-
-        if (Auth::check()) {
-            // dd(Auth::user()->role);
-            if (Auth::user()->role == "user") {
-                return redirect('/');
-            }
-            return redirect('/admin');
-
-
-            // Login masuk kehalaman dashboard
-            // !Login Masuk kehalam dashboard
-        }
-
-        return 'error';
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->to('/');
-    }
 }

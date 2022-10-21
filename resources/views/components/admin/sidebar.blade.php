@@ -10,7 +10,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ request()->is('admin/dashboard') || request()->is('admin/dashboard') ? 'active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ __('Dashboard') }}</span></a>
     </li>
@@ -24,9 +24,9 @@
         </a>
         <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item active" href="admin/product"> <i class="fa fa-briefcase mr-2"></i> {{ __('Products') }}</a>
-                <a class="collapse-item active" href="admin/product"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
-                <a class="collapse-item active" href="admin/product"> <i class="fa fa-briefcase mr-2"></i> {{ __('Tags') }}</a>
+                <a class="collapse-item active" href="product"> <i class="fa fa-briefcase mr-2"></i> {{ __('Products') }}</a>
+                <a class="collapse-item active" href="categories"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
+                <a class="collapse-item active" href="tags"> <i class="fa fa-briefcase mr-2"></i> {{ __('Tags') }}</a>
             </div>
         </div>
     </li>

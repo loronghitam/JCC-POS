@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @push('style')
  @livewireStyles
@@ -6,8 +6,6 @@
 
 @push('script')
  @livewireStyles
- @livewire('livewire-ui-modal')
-
 @endpush
 
 @section('content')
