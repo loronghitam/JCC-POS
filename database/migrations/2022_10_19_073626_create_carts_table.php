@@ -21,10 +21,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_product');
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('RESTRICT');
+            // $table->foreign('id_user')->references('id')->on('users');
 
-            $table->foreign('id_product')->references('id')->on('products')->onDelete('RESTRICT')->onUpdate('RESTRICT');
-
+            // $table->foreign('id_product')->references('id')->on('products');
         });
     }
 

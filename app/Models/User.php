@@ -12,10 +12,10 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    const ROLE_USER = 'User';
-    const ROLE_ADMIN = 'Admin';
+    // const ROLE_USER = 'User';
+    // const ROLE_ADMIN = 'Admin';
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +27,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'role',
     ];
 
     /**
