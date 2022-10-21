@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 include_once('includes/tests/tests.php');
 include_once('includes/auth/auth.php');
-include_once('includes/guest/guest.php.');
-include_once('includes/admin/admin.php.');
+include_once('includes/guest/guest.php');
+
+
+Route::middleware(['admin', 'auth'])->group(function () {
+    include_once('includes/admin/admin.php');
+});

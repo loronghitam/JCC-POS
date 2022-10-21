@@ -11,8 +11,6 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 
-Route::group(['middleware' => 'auth', 'middleware' => 'Admin'], function () {
+Route::group(['middleware' => 'auth', 'middleware' => 'admin'], function () {
     Route::get('/logout', [RegistrasiController::class, 'logout'])->name('logout');
 });
-
-
