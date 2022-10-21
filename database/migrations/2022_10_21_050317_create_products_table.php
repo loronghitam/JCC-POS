@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('detail');
             $table->decimal('price', 15, 2);
             $table->integer('stok');
+            $table->string('image');
             $table->timestamps();
 
             $table->foreign('id_category')->references('id')->on('categories');

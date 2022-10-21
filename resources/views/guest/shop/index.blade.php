@@ -8,7 +8,7 @@
                     @include('guest.shop.sidebar')
                 </div>
                 <div class="col-lg-9">
-                    <livewire:shop.product-component/>
+                    <livewire:product-component/>
                 </div>
             </div>
         </div>

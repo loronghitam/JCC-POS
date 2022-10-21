@@ -12,9 +12,9 @@
                     <a href="/">home</a>
                 </li>
                 <li>
-                    <a href="">shop</a>
+                    <a href="/shop">shop</a>
                 </li>
-                <li><a href="#">Categories</a>
+                <li><a href="/categories">Categories</a>
                     <ul class="single-dropdown">
                         {{-- @foreach($categories_menu as $category_menu)
                         <li><a

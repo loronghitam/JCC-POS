@@ -77,7 +77,7 @@
                                         <img src="{{ asset('storage/images/products/' . $product->firstMedia->file_name ) }}"
                                                 alt="{{ $product->name }}" width="150">
                                     @else --}}
-                                        <img src="{{ asset('frontend/assets/img/product/book/1.jpg' ) }}" alt="{{ $product->name }}" style="width: 100%;">
+                                        <img src="{{ asset('frontend/assets/img/product/book/1.jpg' ) }}" alt="" style="width: 100%;">
                                     {{-- @endif --}}
                                 </a>
                                 <span>hot</span>

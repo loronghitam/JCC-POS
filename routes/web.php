@@ -16,9 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 include_once('includes/tests/tests.php');
 include_once('includes/auth/auth.php');
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+include_once('includes/guest/guest.php.');
+include_once('includes/admin/admin.php.');
