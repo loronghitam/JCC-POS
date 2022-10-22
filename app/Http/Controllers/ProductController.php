@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = DB::table('products')->simplePaginate(3);
+        $products = DB::table('products')->latest()->simplePaginate(3);
         return view('admin.products.index', compact('products'));
     }
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
     }
 
     //untuk menampilkan form create product
-    public function sotre(Request $request)
+    public function store(Request $request)
     {
         try {
             $image = $request->file('image');
