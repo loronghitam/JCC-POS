@@ -47,11 +47,12 @@
                                     <a href="#" class="btn btn-sm btn-primary">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <form
-                                    method="POST">
+                                    <form method="POST" >
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
+                                    {{-- <a href="{{ route("showProblemEditPage",[$problemIdParameter]) }}">Button</button> --}}
+                                    <a href="{{route('category.destroy')}}" class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></a>
+                                    {{-- <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button> --}}
                                 </form>
                                 </div>
                             </td>

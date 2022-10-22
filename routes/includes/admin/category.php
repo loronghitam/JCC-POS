@@ -4,7 +4,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
-Route::resource('category', 'CategoryController',['except'=>[]]);
+Route::resource('category', CategoryController::class);
 
 // Route::prefix('category')->group(function () {
 //     Route::get('/', 'CategoryController@index');

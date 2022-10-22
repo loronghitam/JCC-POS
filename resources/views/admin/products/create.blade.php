@@ -57,17 +57,12 @@
                         <div class="form-group">
                             <label for="category_id">Category</label>
                             <select name="id_category" id="category_id" class="form-control">
-                                <option value="">- Select category -</option>
-                                {{-- @forelse($categories as $category) --}}
-                                {{-- <option value="{{ $category->id }}"
-                                {{ old('category_id') || $product->category_id == $category->id ? 'selected' : null }}>
-                                --}}
-                                <option value="1">
-                                    {{-- {{ $category->name }} --}}
-                                    asik
-                                </option>
-                                {{-- @empty --}}
-                                {{-- @endforelse --}}
+                                <option value="" disabled selected>- Select category -</option>
+                                @forelse($category as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @empty
+                                    <option value="" disabled selected>FUCK U </option>
+                                @endforelse
                             </select>
                             @error('category_id')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
