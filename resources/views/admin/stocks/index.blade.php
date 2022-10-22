@@ -32,7 +32,7 @@
                     <tbody>
 
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            {{-- <td>{{ $loop->iteration }}</td> --}}
                             <td>
                         <tr></tr>
                     </tbody>

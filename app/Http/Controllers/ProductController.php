@@ -6,6 +6,7 @@ use Exception;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = DB::table('products')->latest()->simplePaginate(3);
+        $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
 
@@ -43,9 +44,14 @@ class ProductController extends Controller
             $image = $request->file('image');
             DB::transaction(function () use ($request) {
                 Product::create(
-                    $request->all() // Sort cut untuk memasukan data dengan syarat name pada intputan sama dengan name yang ada di database
+                    $request->all(), // Sort cut untuk memasukan data dengan syarat name pada intputan sama dengan name yang ada di database
                 );
+                // dd($product->id);
             });
+            Stock::create([
+                'stock' => $request->stock,
+                'id_product' => Product::max('id'),
+            ]);
 
             return redirect()->to('/product')->with('message', 'Data berhasil di tambah');
         } catch (Exception $e) {

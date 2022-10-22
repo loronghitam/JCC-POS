@@ -41,7 +41,7 @@
                             </td>
                             <td><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
                             </td>
-                            <td>{{ $product->stok }}</td>
+                            {{-- <td>{{ $product->stock->stock }}</td> --}}
                             <td>Rp.{{ number_format($product->price) }}</td>
                             <td>
                                 {{-- <span class="badge badge-info">{{ $product->tags->pluck('name')->join(', ') }}</span>
@@ -74,7 +74,7 @@
                         <tr>
                             <td colspan="12">
                                 <div class="float-right">
-                                    {{ $products->links() }}
+                                    {{-- {{ $products->links() }} --}}
                                 </div>
                             </td>
                         </tr>
