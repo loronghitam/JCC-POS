@@ -8,14 +8,6 @@
                 <h6 class="m-0 font-weight-bold text-primary">
                     {{ __('Order') }}
                 </h6>
-                <div class="ml-auto">
-                    <a href="{{ route('product.create') }}" class="btn btn-primary">
-                        <span class="icon text-white-50">
-                            <i class="fa fa-plus"></i>
-                        </span>
-                        <span class="text">{{ __('New product') }}</span>
-                    </a>
-                </div>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-bordered">
@@ -30,11 +22,33 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @forelse ($products as $item)
                         <tr>
-                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->stock->stock }}</td>
                             <td>
-                        <tr></tr>
+                                <form action="">
+                                    <input type="number" name="data" min="1">
+                                    <a href="#" class="btn btn-primary">Add</a>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="">
+                                    <input type="number" name="data" min="1">
+                                    <a href="#" class="btn btn-primary">Remove</a>
+                                </form>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            fuck u
+                        </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>

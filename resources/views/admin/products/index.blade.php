@@ -41,14 +41,14 @@
                             </td>
                             <td><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
                             </td>
-                            {{-- <td>{{ $product->stock->stock }}</td> --}}
+                            <td>{{ $product->stock->stock }}</td>
                             <td>Rp.{{ number_format($product->price) }}</td>
                             <td>
                                 {{-- <span class="badge badge-info">{{ $product->tags->pluck('name')->join(', ') }}</span>
                                 --}}
                                 <span class="badge badge-info">Pengaman</span>
                             </td>
-                            <td>{{ $product->id_category }}</td>
+                            <td>{{ $product->category->name }}</td>
                             <td>Ada Dong</td>
                             <td>
                                 <div class="btn-group btn-group-sm">

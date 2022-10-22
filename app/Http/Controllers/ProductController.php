@@ -40,18 +40,17 @@ class ProductController extends Controller
     //untuk menampilkan form create product
     public function store(Request $request)
     {
+        // dd($request->all());
         try {
             $image = $request->file('image');
             DB::transaction(function () use ($request) {
-                Product::create(
+                $product = Product::create(
                     $request->all(), // Sort cut untuk memasukan data dengan syarat name pada intputan sama dengan name yang ada di database
                 );
-                // dd($product->id);
+                $product->stock()->create(
+                    $request->all(),
+                );
             });
-            Stock::create([
-                'stock' => $request->stock,
-                'id_product' => Product::max('id'),
-            ]);
 
             return redirect()->to('/product')->with('message', 'Data berhasil di tambah');
         } catch (Exception $e) {

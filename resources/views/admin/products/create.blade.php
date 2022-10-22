@@ -47,7 +47,7 @@
                             <label for="stok">Quantity</label>
                             {{-- <input class="form-control" id="quantity" type="number" name="quantity" value="{{ old('quantity', $product->quantity) }}">
                             --}}
-                            <input class="form-control" id="quantity" type="number" name="stok" value="#">
+                            <input class="form-control" id="quantity" type="number" name="stock" value="#">
                             @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
