@@ -12,7 +12,7 @@
                 {{ __('Create Product')}}
             </h6>
             <div class="ml-auto">
-                <a href="" class="btn btn-primary">
+                <a href="{{ route('product') }}" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-home"></i>
                     </span>

@@ -32,12 +32,12 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseTwo">
             <span>{{ __('Order Management') }}</span>
         </a>
         <div id="collapseOrder" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item active" href="#"> <i class="fa fa-briefcase mr-2"></i> {{ __('Orders') }}</a>
+                <a class="collapse-item active" href="order"> <i class="fa fa-briefcase mr-2"></i> {{ __('Orders') }}</a>
                 <a class="collapse-item active" href="#"> <i class="fa fa-briefcase mr-2"></i> {{ __('Shipments') }}</a>
             </div>
         </div>
@@ -49,7 +49,7 @@
         </a>
         <div id="collapseReports" class="collapse active" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item " href="#"> <i class="fa fa-briefcase mr-2"></i> {{ __('Revenues') }}</a>
+                <a class="collapse-item " href="#"> <i class="fa fa-briefcase mr-2"></i> {{ __('Transaksi Stok') }}</a>
             </div>
         </div>
     </li>

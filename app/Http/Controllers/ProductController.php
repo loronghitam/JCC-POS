@@ -13,61 +13,31 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // return view('products.index');
+        $products = DB::table('products')->simplePaginate(3);
+        return view('admin.products.index', compact('products'));
+    }
+
+    public function show($id)
+    {
+        $products = Product::find($id)->first();
+        return view('admin.categories.show', compact('products'));
+    }
+
+    public function create()
+    {
+        return view('admin.products.create');
     }
 
 
     public function edit($id)
     {
-
-        // dd($id);
-
         $data = Product::find($id)->first();
-
         $category = Category::find($data->id_category)->first();
-
-        // dd($data->name);
-
         return view('admin.products.edit', compact('data', 'id', 'category'));
-
-        /*
-        if(is_numeric($id)) {
-            $data = DB::table('products')->where('id', $id)->first();
-            $data->price = number_format($data->price);
-            return Response::json($data);
-        }
-
-        $data = DB::table('products')
-            ->join('product_categories', 'product_categories.id', '=', 'products.product_category_id')
-            ->select([
-                'products.*', 'product_categories.name as product_category'
-            ])
-            ->orderBy('products.id', 'desc');
-
-        return DataTables::of($data)
-            ->editColumn(
-                'price',
-                function($row) {
-                    return number_format($row->price);
-                }
-            )
-            ->addColumn(
-                'action',
-                function($row) {
-                    $data = [
-                        'id' => $row->id
-                    ];
-
-                    return view('components.buttons.product', $data);
-                }
-            )
-            ->addIndexColumn()
-            ->make(true);
-            */
     }
 
     //untuk menampilkan form create product
-    public function create(Request $request)
+    public function sotre(Request $request)
     {
         try {
             $image = $request->file('image');
