@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
    <div class="container">
@@ -8,14 +8,12 @@
                     {{ __('Categories') }}
                 </h6>
                 <div class="ml-auto">
-                    @can('category_create')
-                    <a href="#" class="btn btn-primary">
+                    <a href="/category/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
                         <span class="text">{{ __('New category') }}</span>
                     </a>
-                    @endcan
                 </div>
             </div>
             <div class="table-responsive">
@@ -31,25 +29,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {{-- @forelse($categories as $category) --}}
+                    @forelse($category as $data)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>
-                                {{-- @if($category->cover) --}}
-                                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.honestdocs.id%2Fwaktu-yang-tepat-menarik-kondom-saat-melakukan-hubungan-seks&psig=AOvVaw3dRb0CMdHWY4kU1bkRWzAb&ust=1666375430729000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCr4q2y7_oCFQAAAAAdAAAAABAE"
-                                        width="60" height="60" alt="">
-                                {{-- @else
-                                    <span class="badge badge-primary">No image</span>
-                                @endif --}}
+                                <span class="badge badge-primary">No image</span>
                             </td>
-                            <td><a href="#">
-                                    {{-- {{ $category->name }} --}}
-                                    asik
+                            <td>
+                                <a href="#">
+                                    {{ $data->name }}
                                 </a>
                             </td>
-                            {{-- <td>{{ $category->products_count }}</td> --}}
-                            <td>2</td>
-                            {{-- <td>{{ $category->parent->name ?? '' }}</td> --}}
+                            <td></td>
                             <td>asik</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
@@ -65,11 +56,11 @@
                                 </div>
                             </td>
                         </tr>
-                    {{-- @empty --}}
-                        {{-- <tr>
+                    @empty
+                        <tr>
                             <td class="text-center" colspan="6">No categories found.</td>
-                        </tr> --}}
-                    {{-- @endforelse --}}
+                        </tr>
+                    @endforelse
                     </tbody>
                     <tfoot>
                         <tr>
