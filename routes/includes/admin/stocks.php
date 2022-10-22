@@ -5,9 +5,9 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('/order')->group(function () {
+Route::prefix('/stocks')->group(function () {
     Route::get('/', function () {
-        return view('admin.order.index');
+        return view('admin.stocks.index');
     });
     // Route::get('/', [ProductController::class, 'index'])->name('product');
     // Route::get('/create', [ProductController::class, 'create'])->name('product.create');

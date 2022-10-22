@@ -15,13 +15,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity');
-            $table->decimal('total_price', 15, 2);
-            $table->boolean('status');
-            $table->unsignedBigInteger('id_cart');
+            $table->integer('stock');
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product', 'transcations_fk_product')->references('id')->on('products');
             $table->timestamps();
-
-            $table->foreign('id_cart')->references('id')->on('carts')->onDelete('RESTRICT')->onUpdate('RESTRICT');
         });
     }
 

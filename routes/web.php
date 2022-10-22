@@ -26,5 +26,5 @@ Route::middleware(['auth'])->group(function () {
     include_once('includes/admin/category.php');
     include_once('includes/admin/product.php');
     include_once('includes/admin/tags.php');
-    include_once('includes/admin/order.php');
+    include_once('includes/admin/stocks.php');
 });

@@ -22,16 +22,20 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Tags</th>
-                            <th>Category</th>
-                            <th>Status</th>
-                            <th class="text-center" style="width: 30px;">Action</th>
+                            <th>Nama</th>
+                            <th>Current Stock</th>
+                            <th>Add Stock</th>
+                            <th>Remove Stock</th>
+                            <th class="text-center" style="width: 30px;"></th>
                         </tr>
                     </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                        <tr></tr>
+                    </tbody>
                 </table>
             </div>
         </div>
