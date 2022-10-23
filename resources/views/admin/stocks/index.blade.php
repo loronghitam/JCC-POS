@@ -28,15 +28,21 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->stock->stock }}</td>
                             <td>
-                                <form action="">
-                                    <input type="number" name="data" min="1">
-                                    <a href="#" class="btn btn-primary">Add</a>
+                                <form action="{{ route('stocks.update', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="id_product" value="{{ $item->id }}">
+                                    <input type="number" name="stock" min="1">
+                                    <button  class="btn btn-primary" type="submit" name="button" value="add">Add</button>
                                 </form>
                             </td>
                             <td>
-                                <form action="">
-                                    <input type="number" name="data" min="1">
-                                    <a href="#" class="btn btn-primary">Remove</a>
+                                <form action="{{ route('stocks.update', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="id_product" value="{{ $item->id }}">
+                                    <input type="number" name="stock" min="1">
+                                    <button  class="btn btn-primary" type="submit" name="button" value="remove">remove</button>
                                 </form>
                             </td>
                             <td>

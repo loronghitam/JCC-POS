@@ -10,14 +10,12 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'quantity',
-        'total_price',
-        'status',
-        'id_cart',
+        'stock',
+        'id_product'
     ];
 
     public function product()
     {
-        $this->belongsTo(Product::class, 'id_product');
+        return $this->belongsTo(Product::class, 'id_product', 'id');
     }
 }
