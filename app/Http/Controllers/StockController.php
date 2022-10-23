@@ -16,8 +16,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('admin/stocks/index', compact('products'));
+        // $products = Product::all();
+        return view('admin/stocks/index', ['products' => Product::all()]);
     }
 
     /**
@@ -72,9 +72,10 @@ class StockController extends Controller
      */
     public function update(Request $request, Stock $stock)
     {
-        // dd($request->all());
-        $action      = request()->input('button', 'add') == 'add' ? 'add' : 'remove';
-        $stockAmount = request()->input('stock', 1);
+        // $action      = request()->input('button', 'add') == 'add' ? 'add' : 'remove';
+        $action      = $request->button;
+        dd($action);
+        $stockAmount = $request->stock;
         $sign        = $action == 'add' ? '+' : '-';
         if ($stockAmount < 1) {
             return redirect()->route('stocks.index')->with([

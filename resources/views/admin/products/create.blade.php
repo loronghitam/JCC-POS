@@ -89,6 +89,13 @@
                         @error('images')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
+
+                {{-- <form action="{{route('delete', $item->id)}}" method="delete">
+                    @csrf
+                    @method('delete')
+                    <a href="/post/post/{{$item->id}}" class="btn btn-danger btn-xs">Delete</a>
+                </form> --}}
+
                 <div class="form-group pt-4">
                     <button class="btn btn-primary" type="submit" name="submit">{{ __('Save') }}</button>
                 </div>

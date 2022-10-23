@@ -52,10 +52,13 @@
                             <td>Ada Dong</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
-                                    <a href="#" class="btn btn-sm btn-primary">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <form onclick="return confirm('are you sure !')" action="#" method="POST">
+
+
+                                        <a href="{{route('product.edit',$product)}}" class="btn btn-sm btn-primary">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+
+                                    <form onclick="return confirm('are you sure !')" action="{{route('product.delete',$product)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" type="submit"><i

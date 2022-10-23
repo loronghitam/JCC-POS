@@ -24,7 +24,7 @@
         </a>
         <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item active" href="product"> <i class="fa fa-briefcase mr-2"></i> {{ __('Products') }}</a>
+                <a class="collapse-item active" href="{{ route('product')}}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Products') }}</a>
                 <a class="collapse-item active" href="category"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
                 <a class="collapse-item active" href="tags"> <i class="fa fa-briefcase mr-2"></i> {{ __('Tags') }}</a>
             </div>

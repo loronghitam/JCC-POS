@@ -16,13 +16,22 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('id_category')->nullable();
+            // $table->unsignedBigInteger('id_category') ->nullable();
+            $table->foreignId('id_category')->constrained('categories');
             $table->text('detail');
             $table->decimal('price', 15, 2);
             $table->string('image');
             $table->timestamps();
 
-            $table->foreign('id_category')->references('id')->on('categories');
+            // $table  ->foreign('id_category')
+            //         ->references('id')
+            //         ->on('categories')
+            //         ->constrained()
+            //         ->onDelete('cascade');
+
+            // $table  ->foreignId('id_category')
+            //         ->constrained('categories')
+            //         ->onDelete('cascade');
         });
     }
 

@@ -15,7 +15,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transaksi = Transaction::all()->sortByDesc('id');
-
+        
         return view('admin.datamaster.index', compact('transaksi'));
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('backend/vendor/select2/css/select2.min.css') }}">
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{route('update' , [$data->id])}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('product.update' , [$data->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-4">
@@ -40,14 +40,13 @@
                                     @error('price')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="quantity">Quantity</label>
-                                    {{-- <input class="form-control" id="quantity" type="number" name="quantity" value="{{ old('quantity', $product->quantity) }}"> --}}
-                                    <input class="form-control" id="quantity" type="number" name="stok" value="{{$data->stok}}">
-                                    @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror
-                                </div>
-                            </div>
+                            {{-- <div class="col-4"> --}}
+                                {{-- <div class="form-group"> --}}
+                                    {{-- <label for="quantity">Quantity</label> --}}
+                                    {{-- <input class="form-control" id="quantity" type="number" name="stok" value="{{$data->stok}}"> --}}
+                                    {{-- @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror --}}
+                                {{-- </div> --}}
+                            {{-- </div> --}}
                         </div>
                         <div class="row">
                             <div class="col-6">

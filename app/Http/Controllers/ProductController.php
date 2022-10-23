@@ -89,12 +89,20 @@ class ProductController extends Controller
     public function destroy(Request $request, $id)
     {
         try {
+
+            // $id->stock->delete();
+            // $id->delete();
             DB::transaction(function () use ($id) {
-                DB::table('products')
-                    ->where('id', $id)
-                    ->delete();
-            });
+                Product::find($id)->delete();
+                // DB::table('products')
+                //     ->where('id', $id)
+                //     ->delete();
+                });
+
+            return redirect()->to('/product')->with('message', 'Data berhasil di hapus');
+
         } catch (Exception $e) {
+            dd($e);
             return 'kontol jaran';
         }
         // $request->validate([
