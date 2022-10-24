@@ -74,7 +74,7 @@ class StockController extends Controller
     {
         // $action      = request()->input('button', 'add') == 'add' ? 'add' : 'remove';
         $action      = $request->button;
-        dd($action);
+        // dd($action);
         $stockAmount = $request->stock;
         $sign        = $action == 'add' ? '+' : '-';
         if ($stockAmount < 1) {

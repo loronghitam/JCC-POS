@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Termwind\Components\Dd;
 
 class TransactionController extends Controller
 {
@@ -15,7 +17,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transaksi = Transaction::all()->sortByDesc('id');
-        
+
         return view('admin.datamaster.index', compact('transaksi'));
     }
 
@@ -26,7 +28,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        return view('admin.transaksi.index', compact('products'));
     }
 
     /**
@@ -37,7 +40,10 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->collect());
+        foreach ($request->all() as $item) {
+            print($item);
+        }
     }
 
     /**

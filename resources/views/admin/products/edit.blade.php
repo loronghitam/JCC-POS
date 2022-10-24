@@ -46,7 +46,7 @@
                                     {{-- <input class="form-control" id="quantity" type="number" name="stok" value="{{$data->stok}}"> --}}
                                     {{-- @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror --}}
                                 {{-- </div> --}}
-                            {{-- </div> --}}
+                            {{-- </div> --}}`
                         </div>
                         <div class="row">
                             <div class="col-6">
