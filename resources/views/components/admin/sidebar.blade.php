@@ -39,6 +39,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item active" href="stocks"> <i class="fa fa-briefcase mr-2"></i> {{ __('Stock List') }}</a>
                 <a class="collapse-item active" href="transaction"> <i class="fa fa-briefcase mr-2"></i> {{ __('Transcations') }}</a>
+                <a class="collapse-item active" href="{{ route('transaction.create') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Order') }}</a>
             </div>
         </div>
     </li>

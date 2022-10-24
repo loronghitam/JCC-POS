@@ -21,15 +21,15 @@
                     </thead>
                     <tbody>
                         <form action="{{ route('transaction.store') }}" method="POST">
-                            @csrf
+                        @csrf
                         @forelse ($products as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->stock->stock }}</td>
                             <td>{{ $item->price }}</td>
                             <td>
-                                    <input type="hidden" name="{{$item->name}}" value="{{ $item->id }}">
-                                    <input type="number" name="{{$item->name}}" min="1">
+                                    <input type="hidden" name="item{{$item->id}}" value="{{ $item->id }}">
+                                    <input type="number" name="stock{{$item->id}}" min="1">
                                 </td>
                             </tr>
                             @empty
@@ -39,7 +39,7 @@
                             @endforelse
                             <tr>
                                 <td colspan="4 d-flex">
-                                    <button  class="btn btn-primary" type="submit" name="button" value="remove">Transaksi</button>
+                                    <button  class="btn btn-primary" type="submit" name="button" value="beli">Transaksi</button>
 
                                 </td>
                             </tr>

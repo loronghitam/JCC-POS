@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\Stock;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Termwind\Components\Dd;
 
 class TransactionController extends Controller
@@ -40,10 +43,23 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->collect());
-        foreach ($request->all() as $item) {
-            print($item);
+        // dd($request->all());
+        $id = Product::all('id', 'price', 'name');
+        $price = 0;
+        foreach ($id as $key) {
+            $id = $request->input('item' . $key->id);
+            $stock = $request->input('stock' . $key->id);
+            $price += $stock * $key->price;
+            Order::create([
+                'product_id' => $id,
+                'qty' => $stock,
+                'amount' => $stock * $key->price,
+            ]);
+            Stock::find($id)->decrement('stock', (int)$stock);
         }
+        $product =  Product::all();
+
+        return view('admin.transaksi.invoice', compact('product'));
     }
 
     /**
