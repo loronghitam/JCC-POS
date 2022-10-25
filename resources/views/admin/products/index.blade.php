@@ -22,13 +22,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Image</th>
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Tags</th>
                             <th>Category</th>
-                            <th>Status</th>
                             <th class="text-center" style="width: 30px;">Action</th>
                         </tr>
                     </thead>
@@ -37,28 +34,21 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <span class="badge badge-danger">no image</span>
-                            </td>
-                            <td><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a>
+                                <a href="{{ route('product.show', $product->id) }}">
+                                    {{ $product->name }}
+                                </a>
                             </td>
                             <td>{{ $product->stock->stock }}</td>
                             <td>Rp.{{ number_format($product->price) }}</td>
-                            <td>
-                                {{-- <span class="badge badge-info">{{ $product->tags->pluck('name')->join(', ') }}</span>
-                                --}}
-                                <span class="badge badge-info">Pengaman</span>
-                            </td>
                             <td>{{ $product->category->name }}</td>
-                            <td>Ada Dong</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
+                                    <a href="{{route('product.edit',$product)}}" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
 
-
-                                        <a href="{{route('product.edit',$product)}}" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-
-                                    <form onclick="return confirm('are you sure !')" action="{{route('product.delete',$product)}}" method="POST">
+                                    <form onclick="return confirm('are you sure !')"
+                                        action="{{route('product.delete',$product)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" type="submit"><i
@@ -73,15 +63,6 @@
                         </tr>
                         @endforelse
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="12">
-                                <div class="float-right">
-                                    {{-- {{ $products->links() }} --}}
-                                </div>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

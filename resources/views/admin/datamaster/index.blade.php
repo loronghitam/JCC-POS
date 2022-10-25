@@ -29,7 +29,7 @@
                         </tr>
                         @empty
                         <tr>
-                            fuck u
+                            <td class="text-center" colspan="12">No products found.</td>
                         </tr>
                         @endforelse
 

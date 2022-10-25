@@ -52,6 +52,9 @@ class ProductController extends Controller
                 $product->stock()->create(
                     $request->all(),
                 );
+                $product->transaction()->create(
+                    $request->all(),
+                );
             });
 
             return redirect()->to('/product')->with('message', 'Data berhasil di tambah');
@@ -74,16 +77,13 @@ class ProductController extends Controller
                         'name' => $request->name,
                         'detail' => $request->detail,
                         'price' => str_replace('.', '', $request->price),
-                        'stok' => $request->stok,
-                        'image' => '$image',
-                        'created_at' => date('Y-m-d H:i:s'),
-                        // 'price' => $request->price,
+                        'updated_at' => date('Y-m-d H:i:s'),
                     ]);
             });
         } catch (Exception $e) {
-            dd($e);
             return 'kontol jaran';
         }
+        return redirect()->to('/product')->with('message', 'Data berhasil di ubah');
     }
 
     public function destroy(Request $request, $id)
@@ -97,10 +97,9 @@ class ProductController extends Controller
                 // DB::table('products')
                 //     ->where('id', $id)
                 //     ->delete();
-                });
+            });
 
             return redirect()->to('/product')->with('message', 'Data berhasil di hapus');
-
         } catch (Exception $e) {
             dd($e);
             return 'kontol jaran';

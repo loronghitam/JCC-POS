@@ -6,7 +6,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('Order') }}
+                    {{ __('Order') }} || ?
                 </h6>
             </div>
             <div class="table-responsive">
@@ -34,7 +34,7 @@
                             </tr>
                             @empty
                             <tr>
-                                fuck u
+                                <td class="text-center" colspan="12">No products found.</td>
                             </tr>
                             @endforelse
                             <tr>

@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\Product;
 use App\Models\Stock;
+use App\Models\Product;
 use App\Models\Transaction;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Termwind\Components\Dd;
+use Illuminate\Http\Request;
+use LaravelDaily\Invoices\Invoice;
+use Illuminate\Support\Facades\Redirect;
+use LaravelDaily\Invoices\Classes\Party;
+use LaravelDaily\Invoices\Classes\InvoiceItem;
 
 class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \resource\views\admin\datamaster\index
      */
     public function index()
     {
@@ -41,9 +44,33 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function getSerialNumber(): string
+    {
+        $lastUsedSerialNumber = Order::query()->orderByDesc('order_number')->first();
+        // explode by - so you have your tho sequences of the number
+        $parts = explode('-', $lastUsedSerialNumber);
+        // if second part is 999, increment first part, from AAB to AAC, and set
+        // second sequence to 000;
+        if ((int) $parts[0] === 999) {
+            $parts[0] = $parts[0]++;
+            $parts[1] = 000;
+        }
+        // increment second sequence if lower than 999
+        if ((int) $parts[0] < 999) {
+            $parts[0] = str_pad(++$parts[0], 3, '0', STR_PAD_LEFT);
+        }
+        return $parts[0] . '-' . $parts[0];
+    }
     public function store(Request $request)
     {
-        // dd($request->all());
+        if (!Order::where('order_number', 'JJC-001')) {
+            $string = 'JJC' . '-000';
+            $string++;
+        } else {
+            $string = Order::max('order_number');
+            $string++;
+        }
+
         $id = Product::all('id', 'price', 'name');
         $price = 0;
         foreach ($id as $key) {
@@ -51,6 +78,7 @@ class TransactionController extends Controller
             $stock = $request->input('stock' . $key->id);
             $price += $stock * $key->price;
             Order::create([
+                'order_number' => $string,
                 'product_id' => $id,
                 'qty' => $stock,
                 'amount' => $stock * $key->price,
@@ -58,8 +86,9 @@ class TransactionController extends Controller
             Stock::find($id)->decrement('stock', (int)$stock);
         }
         $product =  Product::all();
+        $total = Order::Where('order_number', $string)->sum('amount');
 
-        return view('admin.transaksi.invoice', compact('product'));
+        return view('admin.transaksi.invoice', compact('product', 'total'));
     }
 
     /**

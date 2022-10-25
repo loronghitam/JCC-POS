@@ -21,10 +21,8 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Image</th>
                         <th>Name</th>
                         <th>Product count</th>
-                        <th>Parent</th>
                         <th class="text-center" style="width: 30px;">Action</th>
                     </tr>
                     </thead>
@@ -33,15 +31,11 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <span class="badge badge-primary">No image</span>
-                            </td>
-                            <td>
                                 <a href="#">
                                     {{ $data->name }}
                                 </a>
                             </td>
-                            <td></td>
-                            <td>asik</td>
+                            <td>{{ $data->product->count('id_category') }}</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
                                     <a href="/category/edit" class="btn btn-sm btn-primary">
@@ -58,21 +52,11 @@
                             </td>
                         </tr>
                     @empty
-                        <tr>
-                            <td class="text-center" colspan="6">No categories found.</td>
-                        </tr>
+                    <tr>
+                        <td class="text-center" colspan="12">No products found.</td>
+                    </tr>
                     @endforelse
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">
-                                <div class="float-right">
-                                    {{-- {!! $categories->appends(request()->all())->links() !!} --}}
-                                    asik
-                                </div>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

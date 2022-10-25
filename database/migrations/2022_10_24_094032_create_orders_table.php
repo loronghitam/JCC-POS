@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number');
             $table->foreignId('product_id')->constrained();
             $table->float('qty', 15, 00);
             $table->float('amount', 15, 00);

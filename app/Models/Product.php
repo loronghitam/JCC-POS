@@ -14,7 +14,6 @@ class Product extends Model
         'id_category',
         'detail',
         'price',
-        'image',
     ];
 
     public function category()
@@ -25,5 +24,15 @@ class Product extends Model
     public function stock()
     {
         return $this->hasOne(Stock::class, 'id_product', 'id');
+    }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'product_id', 'id');
+    }
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'id_product', 'id');
     }
 }
