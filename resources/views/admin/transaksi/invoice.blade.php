@@ -40,14 +40,14 @@
                             <div class="col-sm-4 invoice-col">
                                 To
                                 <address>
-                                    <strong>KONTOL JARAN</strong><br>
+                                    <strong>User</strong><br>
                                 </address>
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
                                 <b>Invoice</b><br>
                                 <br>
-                                <B>AANJINGAN</B>
+                                <B>007912</B>
                             </div>
                             <!-- /.col -->
                         </div>

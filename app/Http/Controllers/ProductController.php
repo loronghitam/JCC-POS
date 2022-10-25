@@ -102,10 +102,6 @@ class ProductController extends Controller
             return redirect()->to('/product')->with('message', 'Data berhasil di hapus');
         } catch (Exception $e) {
             dd($e);
-            return 'kontol jaran';
         }
-        // $request->validate([
-        //     'id' =>'required|numeric|exists:products,id',
-        // ]);
     }
 }
